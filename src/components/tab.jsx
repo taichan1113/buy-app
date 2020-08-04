@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import BuyList from "./buylist";
 
 class Tab extends Component {
   render() {
@@ -22,7 +21,7 @@ class Tab extends Component {
               className={[item.active ? "active" : "inactive"]}
               key={item.id}
             >
-              <BuyList/>
+              <item.comp/>
             </section>
           ))}
         </div>

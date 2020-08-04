@@ -1,9 +1,16 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class BuyList extends Component {
-  state = {};
   render() {
-    return <h1>This is from BuyList</h1>;
+    return (
+      <li className="buylist">
+        <div>{this.props.item.name}</div>
+        <span>
+          <FontAwesomeIcon icon={["fas", "cart-arrow-down"]} />
+        </span>
+      </li>
+    );
   }
 }
 
