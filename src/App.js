@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Tab from "./components/tab";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    items: [
+      { id: 1, name: "買い物", active: true },
+      { id: 2, name: "冷蔵庫", active: false },
+    ],
+  };
+  activeTab = (itemId) => {
+    const items = [...this.state.items];
+    items.map(item => {
+      item.active = item.id === itemId
+    });
+    this.setState({ items });
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <Tab items={this.state.items} activeTab={this.activeTab}></Tab>
+      </div>
+    );
+  }
 }
 
 export default App;
