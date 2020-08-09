@@ -6,7 +6,7 @@ class BuyList extends Component {
     return (
       <li className="buylist">
         <div>
-          <p onClick={}>{this.props.item.name}</p>
+          <p>{this.props.item.name}</p>
           <span>
             <FontAwesomeIcon icon={["fas", "trash"]} />
           </span>
@@ -15,5 +15,4 @@ class BuyList extends Component {
     );
   }
 }
-
 export default BuyList;

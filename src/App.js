@@ -6,13 +6,13 @@ import Fridge from "./components/fridge";
 
 class App extends Component {
   state = {
-    items: [
+    tabs: [
       { id: 1, name: "買い物", active: true, comp: BuyLists},
       { id: 2, name: "冷蔵庫", active: false, comp: Fridge},
     ],
   };
   activeTab = (itemId) => {
-    const items = [...this.state.items];
+    const items = [...this.state.tabs];
     items.map(item => {
       item.active = item.id === itemId
     });
@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Tab items={this.state.items} activeTab={this.activeTab}></Tab>
+        <Tab items={this.state.tabs} activeTab={this.activeTab}></Tab>
       </div>
     );
   }
