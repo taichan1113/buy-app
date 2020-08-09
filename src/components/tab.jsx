@@ -5,23 +5,23 @@ class Tab extends Component {
     return (
       <React.Fragment>
         <ul className="tabs">
-          {this.props.items.map((item) => (
+          {this.props.tabs.map((tab) => (
             <li
-              onClick={() => this.props.activeTab(item.id)}
-              className={[item.active ? "active" : "inactive"]}
-              key={item.id}
+              onClick={() => this.props.activeTab(tab.id)}
+              className={[tab.active ? "active" : "inactive"]}
+              key={tab.id}
             >
-              {item.name}
+              {tab.name}
             </li>
           ))}
         </ul>
         <div className="contents">
-          {this.props.items.map((item) => (
+          {this.props.tabs.map((tab) => (
             <section
-              className={[item.active ? "active" : "inactive"]}
-              key={item.id}
+              className={[tab.active ? "active" : "inactive"]}
+              key={tab.id}
             >
-              <item.comp/>
+              <tab.comp lists={this.props.lists}/>
             </section>
           ))}
         </div>
