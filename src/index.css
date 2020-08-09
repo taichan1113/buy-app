@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+p {
+  padding: 0;
+  margin: 0;
+}
+
 ul {
   margin: auto 0;
   padding: 0;
@@ -38,20 +43,22 @@ ul {
 
 .contents > section {
   height: 300px;
+  padding: 5px;
 }
 
 .contents > section.inactive {
   display: none;
 }
 
-.buylist {
+.buylist > div{
   display: flex;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #fff;
   vertical-align: middle;
 }
-.buylist > div {
+.buylist > div > p {
   flex-grow: 1;
 }
-.buylist > span {
-  
-}
+

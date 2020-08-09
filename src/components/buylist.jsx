@@ -5,10 +5,12 @@ class BuyList extends Component {
   render() {
     return (
       <li className="buylist">
-        <div>{this.props.item.name}</div>
-        <span>
-          <FontAwesomeIcon icon={["fas", "cart-arrow-down"]} />
-        </span>
+        <div>
+          <p onClick={}>{this.props.item.name}</p>
+          <span>
+            <FontAwesomeIcon icon={["fas", "trash"]} />
+          </span>
+        </div>
       </li>
     );
   }
