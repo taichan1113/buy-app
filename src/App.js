@@ -21,7 +21,19 @@ class App extends Component {
     tabs.map((tab) => {
       tab.active = tab.id === tabId;
     });
-    this.setState({ items: tabs });
+    this.setState({ tabs: tabs });
+  };
+  toggleSelect = (listId) => {
+    const lists = [...this.state.lists];
+    lists.map((list) => {
+      list.selected = list.id === listId ? !list.selected : list.selected;
+    });
+    this.setState({ lists: lists });
+  };
+  deleteItem = (item) => {
+    const lists = [...this.state.lists];
+    lists.splice(lists.indexOf(item), 1);
+    this.setState({ lists: lists });
   };
 
   render() {
@@ -31,6 +43,8 @@ class App extends Component {
           tabs={this.state.tabs}
           activeTab={this.activeTab}
           lists={this.state.lists}
+          toggleSelect={this.toggleSelect}
+          deleteItem={this.deleteItem}
         ></Tab>
       </div>
     );

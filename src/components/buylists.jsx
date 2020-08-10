@@ -6,7 +6,12 @@ class BuyLists extends Component {
     return (
       <ul>
         {this.props.lists.map((list) => (
-          <BuyList key={list.id} item={list} />
+          <BuyList
+            key={list.id}
+            item={list}
+            toggleSelect={this.props.toggleSelect}
+            deleteItem={this.props.deleteItem}
+          />
         ))}
       </ul>
     );

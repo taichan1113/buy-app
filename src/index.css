@@ -62,3 +62,6 @@ ul {
   flex-grow: 1;
 }
 
+.buylist > div > p.selected {
+  background-color: rgb(134, 255, 140);
+}

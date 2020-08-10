@@ -21,7 +21,11 @@ class Tab extends Component {
               className={[tab.active ? "active" : "inactive"]}
               key={tab.id}
             >
-              <tab.comp lists={this.props.lists}/>
+              <tab.comp
+                lists={this.props.lists}
+                toggleSelect={this.props.toggleSelect}
+                deleteItem={this.props.deleteItem}
+              />
             </section>
           ))}
         </div>
