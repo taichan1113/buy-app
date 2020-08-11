@@ -25,6 +25,9 @@ class Tab extends Component {
                 lists={this.props.lists}
                 stocks={this.props.stocks}
                 toggleSelect={this.props.toggleSelect}
+                addItem={this.props.addItem}
+                item={this.props.item}
+                handleChange={this.props.handleChange}
                 deleteItem={this.props.deleteItem}
                 toFridge={this.props.toFridge}
               />

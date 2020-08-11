@@ -43,7 +43,7 @@ ul {
 }
 
 .contents > section {
-  height: 300px;
+  height: 100%;
   padding: 5px;
 }
 
@@ -51,7 +51,7 @@ ul {
   display: none;
 }
 
-.buylist > div {
+.buylist > div , .list-input {
   display: flex;
   margin: 5px;
   padding: 5px;
@@ -59,8 +59,18 @@ ul {
   background-color: #fff;
   vertical-align: middle;
 }
-.buylist > div > p {
+
+.list-input {
+  margin-bottom: 15px;
+}
+
+.buylist > div > p , .list-input > input[type="text"] {
   flex-grow: 1;
+}
+
+.list-input > input[type="text"] {
+  outline: none;
+  border: none;
 }
 
 .buylist > div > p.selected {

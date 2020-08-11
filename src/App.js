@@ -4,24 +4,19 @@ import BuyLists from "./components/buylists";
 import Fridge from "./components/fridge";
 
 class App extends Component {
-  state = {
-    tabs: [
-      { id: 1, name: "買い物", active: true, comp: BuyLists },
-      { id: 2, name: "冷蔵庫", active: false, comp: Fridge },
-    ],
-    lists: [
-      { id: 1, name: "とまと", selected: false },
-      { id: 2, name: "たまご", selected: false },
-      { id: 3, name: "キャベツ", selected: false },
-      { id: 4, name: "豚肉", selected: false },
-    ],
-    stocks: [
-      { id: 5, name: "tomato" },
-      { id: 6, name: "egg" },
-      { id: 7, name: "cabedge" },
-      { id: 8, name: "pork" },
-    ],
-  };
+  constructor() {
+    super();
+    this.state = {
+      tabs: [
+        { id: 1, name: "Lists", active: true, comp: BuyLists },
+        { id: 2, name: "Stocks", active: false, comp: Fridge },
+      ],
+      item: "",
+      lists: [],
+      stocks: [],
+    };
+  }
+
   activeTab = (tabId) => {
     const tabs = [...this.state.tabs];
     tabs.map((tab) => {
@@ -36,6 +31,23 @@ class App extends Component {
     });
     this.setState({ lists: lists });
   };
+  addItem = (e) => {
+    e.preventDefault();
+    if (this.state.item.trim() === '') {
+      return;
+    }
+    const item = {
+      id: this.getUniqueId(),
+      name: this.state.item,
+      selected: false,
+    };
+    const lists = [...this.state.lists];
+    lists.push(item);
+    this.setState({ lists: lists, item:''});
+  };
+  handleChange = e => {
+    this.setState({item: e.target.value});
+  }
   deleteItem = (item) => {
     const lists = [...this.state.lists];
     lists.splice(lists.indexOf(item), 1);
@@ -49,12 +61,11 @@ class App extends Component {
     stocks_add.map((stock) => {
       stocks.push({ id: this.getUniqueId(), name: stock.name });
     });
-    this.setState({lists: lists_new, stocks: stocks});
+    this.setState({ lists: lists_new, stocks: stocks });
   };
-
   getUniqueId() {
     return new Date().getTime().toString(36) + "-" + Math.random().toString(36);
-  };
+  }
 
   render() {
     return (
@@ -65,6 +76,9 @@ class App extends Component {
           lists={this.state.lists}
           stocks={this.state.stocks}
           toggleSelect={this.toggleSelect}
+          addItem={this.addItem}
+          item={this.state.item}
+          handleChange={this.handleChange}
           deleteItem={this.deleteItem}
           toFridge={this.toFridge}
         ></Tab>

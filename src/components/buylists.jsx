@@ -1,11 +1,23 @@
 import React, { Component } from "react";
 import BuyList from "./buylist";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fragment } from "react";
 
 class BuyLists extends Component {
   render() {
     return (
       <Fragment>
+        <form className="list-input" onSubmit={(e) => this.props.addItem(e)}>
+          <input
+            type="text"
+            placeholder="input buy list"
+            value={this.props.item}
+            onChange={(e) => this.props.handleChange(e)}
+          />
+          <button type="submit">
+            <FontAwesomeIcon icon={["fas", "cart-arrow-down"]} />
+          </button>
+        </form>
         <ul>
           {this.props.lists.map((list) => (
             <BuyList
@@ -16,9 +28,9 @@ class BuyLists extends Component {
             />
           ))}
         </ul>
-        <p className="btn" onClick={() => this.props.toFridge()}>
+        <div className="btn" onClick={() => this.props.toFridge()}>
           To Fridge
-        </p>
+        </div>
       </Fragment>
     );
   }
