@@ -15,6 +15,12 @@ class App extends Component {
       { id: 3, name: "キャベツ", selected: false },
       { id: 4, name: "豚肉", selected: false },
     ],
+    stocks: [
+      { id: 5, name: "tomato" },
+      { id: 6, name: "egg" },
+      { id: 7, name: "cabedge" },
+      { id: 8, name: "pork" },
+    ],
   };
   activeTab = (tabId) => {
     const tabs = [...this.state.tabs];
@@ -35,6 +41,20 @@ class App extends Component {
     lists.splice(lists.indexOf(item), 1);
     this.setState({ lists: lists });
   };
+  toFridge = () => {
+    const lists = [...this.state.lists];
+    let stocks = [...this.state.stocks];
+    const lists_new = lists.filter((list) => !list.selected);
+    const stocks_add = lists.filter((list) => list.selected);
+    stocks_add.map((stock) => {
+      stocks.push({ id: this.getUniqueId(), name: stock.name });
+    });
+    this.setState({lists: lists_new, stocks: stocks});
+  };
+
+  getUniqueId() {
+    return new Date().getTime().toString(36) + "-" + Math.random().toString(36);
+  };
 
   render() {
     return (
@@ -43,8 +63,10 @@ class App extends Component {
           tabs={this.state.tabs}
           activeTab={this.activeTab}
           lists={this.state.lists}
+          stocks={this.state.stocks}
           toggleSelect={this.toggleSelect}
           deleteItem={this.deleteItem}
+          toFridge={this.toFridge}
         ></Tab>
       </div>
     );

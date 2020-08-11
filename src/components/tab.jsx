@@ -23,8 +23,10 @@ class Tab extends Component {
             >
               <tab.comp
                 lists={this.props.lists}
+                stocks={this.props.stocks}
                 toggleSelect={this.props.toggleSelect}
                 deleteItem={this.props.deleteItem}
+                toFridge={this.props.toFridge}
               />
             </section>
           ))}

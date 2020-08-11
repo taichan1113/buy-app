@@ -37,7 +37,8 @@ ul {
   border-radius: 10px 10px 0 0;
 }
 
-.tabs > li.active, .contents > section{
+.tabs > li.active,
+.contents > section {
   background-color: rgb(255, 240, 157);
 }
 
@@ -50,7 +51,7 @@ ul {
   display: none;
 }
 
-.buylist > div{
+.buylist > div {
   display: flex;
   margin: 5px;
   padding: 5px;
@@ -64,4 +65,20 @@ ul {
 
 .buylist > div > p.selected {
   background-color: rgb(134, 255, 140);
+}
+
+.btn {
+  background-color: rgb(70, 104, 255);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 10px;
+  margin-top: 10px;
+  float: right;
+  box-shadow: 0 3px rgb(2, 15, 75);
+}
+
+.btn:active{
+  box-shadow: none;
+  transform: translate(0, 2px);
 }

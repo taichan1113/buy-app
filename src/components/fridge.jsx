@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import Stock from "./stock";
 
 class Fridge extends Component {
   render() {
-    return <h1 style={{padding:0, margin:0}}>This is from Fridge</h1>;
+    return (
+      <ul>
+        {this.props.stocks.map((stock) => (
+          <Stock key={stock.id} stock={stock}/>
+        ))}
+      </ul>
+    );
   }
 }
 
