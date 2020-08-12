@@ -92,3 +92,38 @@ ul {
   box-shadow: none;
   transform: translate(0, 2px);
 }
+
+#table-container{
+  display: flex;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead > tr {
+  background-color: rgb(70, 104, 255);
+  color: #fff;
+}
+
+tbody > tr {
+  background-color: #fff;
+}
+
+th, td {
+  text-align: left;
+  padding-left: 10px;
+}
+
+td.notice {
+  color:rgb(70, 104, 255);
+}
+
+td.caution {
+  color: rgb(255, 122, 14);
+}
+
+td.warning {
+  color: rgb(255, 71, 86);
+}

@@ -12,8 +12,8 @@ class App extends Component {
         { id: 2, name: "Stocks", active: false, comp: Fridge },
       ],
       item: "",
-      lists: [],
-      stocks: [],
+      lists: [{ id: this.getUniqueId(), name: "Test", date: this.myDate() }],
+      stocks: [{ id: this.getUniqueId(), name: "Test", date: this.myDate() }],
     };
   }
 
@@ -54,9 +54,14 @@ class App extends Component {
     this.setState({ lists: lists });
   };
   deleteAll = () => {
-    const lists = [...this.state.lists];
-    const lists_new = lists.filter((list) => list.selected);
-    this.setState({ lists: lists_new });
+    let ans = window.confirm("Clear all unselected lists?");
+    if (!ans) {
+      return;
+    } else {
+      const lists = [...this.state.lists];
+      const lists_new = lists.filter((list) => list.selected);
+      this.setState({ lists: lists_new });
+    }
   };
   toFridge = () => {
     const lists = [...this.state.lists];
@@ -64,12 +69,25 @@ class App extends Component {
     const lists_new = lists.filter((list) => !list.selected);
     const stocks_add = lists.filter((list) => list.selected);
     stocks_add.map((stock) => {
-      stocks.push({ id: this.getUniqueId(), name: stock.name });
+      stocks.push({
+        id: this.getUniqueId(),
+        name: stock.name,
+        date: this.myDate(),
+      });
     });
     this.setState({ lists: lists_new, stocks: stocks });
   };
+  eatStocks = (stock) => {
+    const stocks = [...this.state.stocks];
+    stocks.splice(stocks.indexOf(stock), 1);
+    this.setState({ stocks: stocks });
+  };
   getUniqueId() {
     return new Date().getTime().toString(36) + "-" + Math.random().toString(36);
+  }
+  myDate() {
+    let now = new Date();
+    return `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
   }
 
   render() {
@@ -87,6 +105,7 @@ class App extends Component {
           deleteItem={this.deleteItem}
           deleteAll={this.deleteAll}
           toFridge={this.toFridge}
+          eatStocks={this.eatStocks}
         ></Tab>
       </div>
     );

@@ -33,7 +33,7 @@ class BuyLists extends Component {
           To Stocks
         </div>
         <div className="btn" onClick={() => this.props.deleteAll()}>
-          Clear
+          Clear All
         </div>
       </Fragment>
     );
