@@ -29,6 +29,7 @@ class Tab extends Component {
                 item={this.props.item}
                 handleChange={this.props.handleChange}
                 deleteItem={this.props.deleteItem}
+                deleteAll={this.props.deleteAll}
                 toFridge={this.props.toFridge}
               />
             </section>

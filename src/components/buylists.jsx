@@ -12,6 +12,7 @@ class BuyLists extends Component {
             type="text"
             placeholder="input buy list"
             value={this.props.item}
+            autoFocus ={!this.props.item}
             onChange={(e) => this.props.handleChange(e)}
           />
           <button type="submit">
@@ -29,7 +30,10 @@ class BuyLists extends Component {
           ))}
         </ul>
         <div className="btn" onClick={() => this.props.toFridge()}>
-          To Fridge
+          To Stocks
+        </div>
+        <div className="btn" onClick={() => this.props.deleteAll()}>
+          Clear
         </div>
       </Fragment>
     );

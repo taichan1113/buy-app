@@ -33,7 +33,7 @@ class App extends Component {
   };
   addItem = (e) => {
     e.preventDefault();
-    if (this.state.item.trim() === '') {
+    if (this.state.item.trim() === "") {
       return;
     }
     const item = {
@@ -43,15 +43,20 @@ class App extends Component {
     };
     const lists = [...this.state.lists];
     lists.push(item);
-    this.setState({ lists: lists, item:''});
+    this.setState({ lists: lists, item: "" });
   };
-  handleChange = e => {
-    this.setState({item: e.target.value});
-  }
+  handleChange = (e) => {
+    this.setState({ item: e.target.value });
+  };
   deleteItem = (item) => {
     const lists = [...this.state.lists];
     lists.splice(lists.indexOf(item), 1);
     this.setState({ lists: lists });
+  };
+  deleteAll = () => {
+    const lists = [...this.state.lists];
+    const lists_new = lists.filter((list) => list.selected);
+    this.setState({ lists: lists_new });
   };
   toFridge = () => {
     const lists = [...this.state.lists];
@@ -80,6 +85,7 @@ class App extends Component {
           item={this.state.item}
           handleChange={this.handleChange}
           deleteItem={this.deleteItem}
+          deleteAll={this.deleteAll}
           toFridge={this.toFridge}
         ></Tab>
       </div>
