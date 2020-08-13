@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/taichan1113/buy-app.git/static/css/main.ab87d509.chunk.css",
+    "main.js": "/taichan1113/buy-app.git/static/js/main.c24f50c3.chunk.js",
+    "main.js.map": "/taichan1113/buy-app.git/static/js/main.c24f50c3.chunk.js.map",
+    "runtime-main.js": "/taichan1113/buy-app.git/static/js/runtime-main.8c18a2b7.js",
+    "runtime-main.js.map": "/taichan1113/buy-app.git/static/js/runtime-main.8c18a2b7.js.map",
+    "static/js/2.cbff5d99.chunk.js": "/taichan1113/buy-app.git/static/js/2.cbff5d99.chunk.js",
+    "static/js/2.cbff5d99.chunk.js.map": "/taichan1113/buy-app.git/static/js/2.cbff5d99.chunk.js.map",
+    "index.html": "/taichan1113/buy-app.git/index.html",
+    "precache-manifest.94fc6bb95f163593655bd299124be609.js": "/taichan1113/buy-app.git/precache-manifest.94fc6bb95f163593655bd299124be609.js",
+    "service-worker.js": "/taichan1113/buy-app.git/service-worker.js",
+    "static/css/main.ab87d509.chunk.css.map": "/taichan1113/buy-app.git/static/css/main.ab87d509.chunk.css.map",
+    "static/js/2.cbff5d99.chunk.js.LICENSE.txt": "/taichan1113/buy-app.git/static/js/2.cbff5d99.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c18a2b7.js",
+    "static/js/2.cbff5d99.chunk.js",
+    "static/css/main.ab87d509.chunk.css",
+    "static/js/main.c24f50c3.chunk.js"
+  ]
+}
