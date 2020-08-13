@@ -12,8 +12,8 @@ class App extends Component {
         { id: 2, name: "Stocks", active: false, comp: Fridge },
       ],
       item: "",
-      lists: [{ id: this.getUniqueId(), name: "Test", date: this.myDate() }],
-      stocks: [{ id: this.getUniqueId(), name: "Test", date: this.myDate() }],
+      lists: [],
+      stocks: [],
     };
   }
 
@@ -88,6 +88,17 @@ class App extends Component {
   myDate() {
     let now = new Date();
     return `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('lists', JSON.stringify(this.state.lists));
+    localStorage.setItem('stocks', JSON.stringify(this.state.stocks));
+  }
+  componentDidMount() {
+    this.setState({
+      lists: JSON.parse(localStorage.getItem('lists')) || [],
+      stocks: JSON.parse(localStorage.getItem('stocks')) || []
+    })
   }
 
   render() {
