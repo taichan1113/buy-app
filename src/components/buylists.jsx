@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import BuyList from "./buylist";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Fragment } from "react";
 
 class BuyLists extends Component {
   render() {
     return (
-      <Fragment>
+      <React.Fragment>
         <form className="list-input" onSubmit={(e) => this.props.addItem(e)}>
           <input
             type="text"
@@ -35,7 +34,7 @@ class BuyLists extends Component {
         <div className="btn" onClick={() => this.props.deleteAll()}>
           Clear All
         </div>
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

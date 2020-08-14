@@ -77,6 +77,20 @@ class App extends Component {
     });
     this.setState({ lists: lists_new, stocks: stocks });
   };
+  addStock = (e) => {
+    e.preventDefault();
+    if (this.state.item.trim() === "") {
+      return;
+    }
+    const item = {
+      id: this.getUniqueId(),
+      name: this.state.item,
+      date: this.myDate(),
+    };
+    const stocks = [...this.state.stocks];
+    stocks.push(item);
+    this.setState({ stocks: stocks, item: "" });
+  };
   eatStocks = (stock) => {
     const stocks = [...this.state.stocks];
     stocks.splice(stocks.indexOf(stock), 1);
@@ -91,14 +105,14 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    localStorage.setItem('lists', JSON.stringify(this.state.lists));
-    localStorage.setItem('stocks', JSON.stringify(this.state.stocks));
+    localStorage.setItem("lists", JSON.stringify(this.state.lists));
+    localStorage.setItem("stocks", JSON.stringify(this.state.stocks));
   }
   componentDidMount() {
     this.setState({
-      lists: JSON.parse(localStorage.getItem('lists')) || [],
-      stocks: JSON.parse(localStorage.getItem('stocks')) || []
-    })
+      lists: JSON.parse(localStorage.getItem("lists")) || [],
+      stocks: JSON.parse(localStorage.getItem("stocks")) || [],
+    });
   }
 
   render() {
@@ -116,6 +130,7 @@ class App extends Component {
           deleteItem={this.deleteItem}
           deleteAll={this.deleteAll}
           toFridge={this.toFridge}
+          addStock={this.addStock}
           eatStocks={this.eatStocks}
         ></Tab>
       </div>
