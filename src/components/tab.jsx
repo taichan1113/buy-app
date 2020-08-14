@@ -31,6 +31,7 @@ class Tab extends Component {
                 deleteItem={this.props.deleteItem}
                 deleteAll={this.props.deleteAll}
                 toFridge={this.props.toFridge}
+                addStock={this.props.addStock}
                 eatStocks={this.props.eatStocks}
               />
             </section>
