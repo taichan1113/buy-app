@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/buy-app/static/css/main.83f91e4f.chunk.css",
+    "main.js": "/buy-app/static/js/main.da212c3c.chunk.js",
+    "main.js.map": "/buy-app/static/js/main.da212c3c.chunk.js.map",
+    "runtime-main.js": "/buy-app/static/js/runtime-main.5fe038a5.js",
+    "runtime-main.js.map": "/buy-app/static/js/runtime-main.5fe038a5.js.map",
+    "static/js/2.f06fff38.chunk.js": "/buy-app/static/js/2.f06fff38.chunk.js",
+    "static/js/2.f06fff38.chunk.js.map": "/buy-app/static/js/2.f06fff38.chunk.js.map",
+    "index.html": "/buy-app/index.html",
+    "precache-manifest.3b08834e9de3c4a422aeb20a5f6b379d.js": "/buy-app/precache-manifest.3b08834e9de3c4a422aeb20a5f6b379d.js",
+    "service-worker.js": "/buy-app/service-worker.js",
+    "static/css/main.83f91e4f.chunk.css.map": "/buy-app/static/css/main.83f91e4f.chunk.css.map",
+    "static/js/2.f06fff38.chunk.js.LICENSE.txt": "/buy-app/static/js/2.f06fff38.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5fe038a5.js",
+    "static/js/2.f06fff38.chunk.js",
+    "static/css/main.83f91e4f.chunk.css",
+    "static/js/main.da212c3c.chunk.js"
+  ]
+}
