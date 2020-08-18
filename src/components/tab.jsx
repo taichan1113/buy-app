@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
 
 class Tab extends Component {
   render() {
@@ -21,19 +22,21 @@ class Tab extends Component {
               className={[tab.active ? "active" : "inactive"]}
               key={tab.id}
             >
-              <tab.comp
-                lists={this.props.lists}
-                stocks={this.props.stocks}
-                toggleSelect={this.props.toggleSelect}
-                addItem={this.props.addItem}
-                item={this.props.item}
-                handleChange={this.props.handleChange}
-                deleteItem={this.props.deleteItem}
-                deleteAll={this.props.deleteAll}
-                toFridge={this.props.toFridge}
-                addStock={this.props.addStock}
-                eatStocks={this.props.eatStocks}
-              />
+              <DragDropContext>
+                <tab.comp
+                  lists={this.props.lists}
+                  stocks={this.props.stocks}
+                  toggleSelect={this.props.toggleSelect}
+                  addItem={this.props.addItem}
+                  item={this.props.item}
+                  handleChange={this.props.handleChange}
+                  deleteItem={this.props.deleteItem}
+                  deleteAll={this.props.deleteAll}
+                  toFridge={this.props.toFridge}
+                  addStock={this.props.addStock}
+                  eatStocks={this.props.eatStocks}
+                />
+              </DragDropContext>
             </section>
           ))}
         </div>
