@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Stock from "./stock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Droppable } from "react-beautiful-dnd";
 
 class Fridge extends Component {
   render() {
@@ -19,22 +20,32 @@ class Fridge extends Component {
           </button>
         </form>
         <div id="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>name</th>
-                <th>purchased at</th>
-                <th>eat</th>
-              </tr>
-            </thead>
-            {this.props.stocks.map((stock) => (
-              <Stock
-                key={stock.id}
-                stock={stock}
-                eatStocks={this.props.eatStocks}
-              />
-            ))}
-          </table>
+          <Droppable droppableId={"Fridge"} type={"Fridge"}>
+            {(provided) => (
+              <table>
+                <thead>
+                  <tr>
+                    <th className="column1">name</th>
+                    <th className="column2">purchased at</th>
+                    <th className="column3">eat</th>
+                  </tr>
+                </thead>
+                <tbody {...provided.droppableProps} ref={provided.innerRef}>
+                  {this.props.stocks.map((stock, index) => {
+                    return (
+                      <Stock
+                        key={stock.id}
+                        index={index}
+                        stock={stock}
+                        eatStocks={this.props.eatStocks}
+                      />
+                    );
+                  })}
+                  {provided.placeholder}
+                </tbody>
+              </table>
+            )}
+          </Droppable>
         </div>
       </React.Fragment>
     );

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
 class Tab extends Component {
+
+
   render() {
     return (
       <React.Fragment>
@@ -22,7 +24,7 @@ class Tab extends Component {
               className={[tab.active ? "active" : "inactive"]}
               key={tab.id}
             >
-              <DragDropContext>
+              <DragDropContext onDragEnd={this.props.onDragEnd}>
                 <tab.comp
                   lists={this.props.lists}
                   stocks={this.props.stocks}

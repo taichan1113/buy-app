@@ -19,7 +19,7 @@ class BuyLists extends Component {
             <FontAwesomeIcon icon={["fas", "cart-arrow-down"]} />
           </button>
         </form>
-        <Droppable droppableId={"BuyLists"}>
+        <Droppable droppableId={"BuyLists"} type={"BuyLists"}>
           {(provided) => (
             <ul {...provided.droppableProps} ref={provided.innerRef}>
               {this.props.lists.map((list, index) => {

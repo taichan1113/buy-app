@@ -37,6 +37,11 @@ ul {
   border-radius: 10px 10px 0 0;
 }
 
+.contents {
+  margin: 0 auto;
+  min-width: 300px;
+}
+
 .tabs > li.active,
 .contents > section {
   background-color: rgb(255, 240, 157);
@@ -93,13 +98,18 @@ ul {
   transform: translate(0, 2px);
 }
 
+/* table */
 #table-container{
   display: flex;
+  flex-direction: column;
+  
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 thead > tr {
@@ -111,9 +121,23 @@ tbody > tr {
   background-color: #fff;
 }
 
+tr {
+  display: flex;
+}
+
 th, td {
   text-align: left;
   padding-left: 10px;
+}
+
+.column1 {
+  flex: 4;
+}
+.column2 {
+  flex: 4;
+}
+.column3 {
+  flex: 1;
 }
 
 td.notice {

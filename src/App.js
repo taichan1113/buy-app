@@ -104,6 +104,37 @@ class App extends Component {
     return `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
   }
 
+  onDragEnd = (result) => {
+    const { draggableId, type, source, destination } = result;
+    console.log('---------------');
+    console.log(`draggableId is ${draggableId}`);
+    console.log(`type is ${type}`);
+    console.log(`source is`);
+    console.log(source);
+    console.log(`destination is`);
+    console.log(destination);
+
+    if (!destination) {
+      return;
+    }
+    if (
+      source.droppableId === destination.droppableId &&
+      source.index === destination.index
+    ) {
+      return;
+    }
+
+
+    const items = type === "BuyLists" ? Array.from(this.state.lists) : Array.from(this.state.stocks )
+    const newItems = Array.from(items);
+    newItems.splice(source.index, 1);
+    newItems.splice(destination.index, 0, items[source.index]);
+    console.log(items);
+    console.log(newItems);
+    type === "BuyLists" ? this.setState({lists: newItems}) : this.setState({stocks: newItems});
+    return;
+  };
+
   componentDidUpdate() {
     localStorage.setItem("lists", JSON.stringify(this.state.lists));
     localStorage.setItem("stocks", JSON.stringify(this.state.stocks));
@@ -132,6 +163,7 @@ class App extends Component {
           toFridge={this.toFridge}
           addStock={this.addStock}
           eatStocks={this.eatStocks}
+          onDragEnd={this.onDragEnd}
         ></Tab>
       </div>
     );
